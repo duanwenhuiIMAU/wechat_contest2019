@@ -1,0 +1,169 @@
+<!--pages/warnup/warnup.wxml
+<text>pages/warnup/warnup.wxml</text>-->
+<!-- 有错 -->
+<van-notify id="custom-selector_err" />
+<!-- 未答题 -->
+<van-notify id="custom-selector_notTap_1" />
+<!-- 正确 -->
+<van-notify id="custom-selector_cor" />
+<!-- 未进入答题的提示页面 -->
+<view wx:if="{{numberForShowOrNot == 0}}" class='booton_view'>
+  <!-- 提示文本 -->
+  <text class="tip">tip</text>
+  <text class="tip1">由于分录存在多借多贷</text>
+  <text class="tip2">每个选项的间距可能不同</text>
+  <text class="tip3">不要点错哦</text>
+  <!--开始热身按钮-->
+  <button class="warnup" bindtap='warnup'>开始热身</button>
+  <!--调过热身按钮-->
+  <view class="jumpWarnup" bindtap='redirectToExam'>跳过热身</view>
+</view>
+<progress percent="{{progressNumber}}" stroke-width="30" activeColor="#3bac6a" backgroundColor="white" />
+<!-- 单选 -->
+<view wx:if="{{numberForShowOrNot == 1}}">
+  <view class='question'>单选题题目：{{single_answer.question}}的会计分录</view>
+  <!-- 该 view 下有 bindtap-->
+  <view wx:if="{{canTap == 0}}">
+    <!-- 选项 A -->
+    <view class='answer_form' bindtap='bindToNext_A'>
+      <!-- 选项 A 的借方第一项 -->
+      <view class='firstDebit'>A.{{single_answer.answer_A.debit}}</view>
+      <!-- 选项 A 的借方的其他项存在则渲染 -->
+      <view class='otherDeibit' wx:if="{{single_answer.answer_A.debit_index}}">
+        <view wx:for="{{single_answer.answer_A.debit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+      <view class='firstCredit'>{{single_answer.answer_A.credit}}</view>
+      <view class='otherCredit' wx:if="{{single_answer.answer_A.credit_index}}">
+        <view wx:for="{{single_answer.answer_A.credit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='answer_form' bindtap='bindToNext_B'>
+      <view class='firstDebit'>B.{{single_answer.answer_B.debit}}</view>
+      <view class='otherDeibit' wx:if="{{single_answer.answer_B.debit_index}}">
+        <view wx:for="{{single_answer.answer_B.debit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+      <view class='firstCredit'>{{single_answer.answer_B.credit}}</view>
+      <view class='otherCredit' wx:if="{{single_answer.answer_B.credit_index}}">
+        <view wx:for="{{single_answer.answer_B.credit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='answer_form' bindtap='bindToNext_C'>
+      <view class='firstDebit'>C.{{single_answer.answer_C.debit}}</view>
+      <view class='otherDeibit' wx:if="{{single_answer.answer_C.debit_index}}">
+        <view wx:for="{{single_answer.answer_C.debit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+      <view class='firstCredit'>{{single_answer.answer_C.credit}}</view>
+      <view class='otherCredit' wx:if="{{single_answer.answer_C.credit_index}}">
+        <view wx:for="{{single_answer.answer_C.credit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='answer_form' bindtap='bindToNext_D'>
+      <view class='firstDebit'>D.{{single_answer.answer_D.debit}}</view>
+      <view class='otherDeibit' wx:if="{{single_answer.answer_D.debit_index}}">
+        <view wx:for="{{single_answer.answer_D.debit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+      <view class='firstCredit'>{{single_answer.answer_D.credit}}</view>
+      <view class='otherCredit' wx:if="{{single_answer.answer_D.credit_index}}">
+        <view wx:for="{{single_answer.answer_D.credit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 该 view 下无 bindtap-->
+  <view wx:if="{{canTap == 1}}">
+    <view class='answer_form'>
+      <view class='firstDebit'>A.{{single_answer.answer_A.debit}}
+        <text wx:if='{{showOX==0}}' class='OX'>{{checkOX}}</text>
+      </view>
+      <view class='otherDeibit' wx:if="{{single_answer.answer_A.debit_index}}">
+        <view wx:for="{{single_answer.answer_A.debit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+      <view class='firstCredit'>{{single_answer.answer_A.credit}}</view>
+      <view class='otherCredit' wx:if="{{single_answer.answer_A.credit_index}}">
+        <view wx:for="{{single_answer.answer_A.credit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='answer_form'>
+      <view class='firstDebit'>B.{{single_answer.answer_B.debit}}
+        <text wx:if='{{showOX==1}}' class='OX'>{{checkOX}}</text>
+      </view>
+      <view class='otherDeibit' wx:if="{{single_answer.answer_B.debit_index}}">
+        <view wx:for="{{single_answer.answer_B.debit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+      <view class='firstCredit'>{{single_answer.answer_B.credit}}</view>
+      <view class='otherCredit' wx:if="{{single_answer.answer_B.credit_index}}">
+        <view wx:for="{{single_answer.answer_B.credit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='answer_form'>
+      <view class='firstDebit'>C.{{single_answer.answer_C.debit}}
+        <text wx:if='{{showOX==2}}' class='OX'>{{checkOX}}
+        </text>
+      </view>
+      <view class='otherDeibit' wx:if="{{single_answer.answer_C.debit_index}}">
+        <view wx:for="{{single_answer.answer_C.debit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+      <view class='firstCredit'>{{single_answer.answer_C.credit}}</view>
+      <view class='otherCredit' wx:if="{{single_answer.answer_C.credit_index}}">
+        <view wx:for="{{single_answer.answer_C.credit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='answer_form'>
+      <view class='firstDebit'>D.{{single_answer.answer_D.debit}}
+        <text wx:if='{{showOX==3}}' class='OX'>{{checkOX}}</text>
+      </view>
+      <view class='otherDeibit' wx:if="{{single_answer.answer_D.debit_index}}">
+        <view wx:for="{{single_answer.answer_D.debit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+      <view class='firstCredit'>{{single_answer.answer_D.credit}}</view>
+      <view class='otherCredit' wx:if="{{single_answer.answer_D.credit_index}}">
+        <view wx:for="{{single_answer.answer_D.credit_index}}" wx:key="*this">
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 判断 -->
+<view wx:if="{{numberForShowOrNot == 2}}">
+  <!-- class="toFillIt" 为了处理问题顺序置顶 -->
+  <view class="toFillIt"></view>
+  <view class='question'>判断题题目：{{True_or_False.question}}</view>
+  <view class='make_botton_together'>
+    <button class='judgeRight' bindtap='judgeRight'>正确</button>
+    <button class='judgeWrong' bindtap='judgeWrong'>错误</button>
+  </view>
+</view>
+
+<view>
+  <view wx:if="{{numberForShowOrNot != 0}}" class="questionRank">{{numberForShowOrNot}}/2</view>
+</view>

@@ -1,0 +1,33 @@
+/* pages/info/info.wxss */
+
+.border {
+  border: 1rpx solid #3bac6a;
+  background-color: #3bac6a;
+  border-radius: 30rpx;
+  margin: 20rpx;
+}
+
+.viewone {
+  margin-top: 40rpx;
+  font-size: 45rpx;
+  color: white;
+}
+
+.viewtwo {
+  margin-top: 40rpx;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  border-top: 2rpx solid white;
+  text-align: center;
+  font-size: 50rpx;
+  color: white;
+}
+.viewthree{
+  padding-bottom: 10rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: white;
+}
+.image{
+  border-radius: 20rpx;
+}

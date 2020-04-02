@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/userPage/userPage",
+    "pages/warnup/warnup",
+    "pages/exam/exam",
+    "pages/rememberCard/rememberCard",
+    "pages/info/info"    
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "分录英雄",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-switch-cell": "../../miniprogram_npm/vant-weapp/switch-cell/index",
+    "van-notify": "../../miniprogram_npm/vant-weapp/notify/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

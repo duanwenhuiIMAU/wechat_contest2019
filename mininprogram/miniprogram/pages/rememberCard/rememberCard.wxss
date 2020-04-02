@@ -1,0 +1,154 @@
+/* pages/rememberCard/rememberCard.wxss */
+
+.booton_view {
+  display: flex;
+  justify-content: center;
+}
+
+/* 分成1-10/11-20 ... */
+
+.divide {
+  border-left: 10rpx solid #3bac6a;
+  font-size: 50rpx;
+  text-align: center;
+  color: #3bac6a;
+  margin: 40rpx;
+  padding-left: 10rpx;
+}
+
+/* 抬高 */
+
+.show {
+  position: absolute;
+  top: 0rpx;
+}
+
+/*不显示*/
+
+.hidden {
+  display: none;
+}
+
+/* 显示你的错题文本 */
+
+.item_acc_tiile_err {
+  font-size: 80rpx;
+  text-align: center;
+  color: #3bac6a;
+}
+
+/* 显示单选题/判断题文本 */
+
+.item_acc_bra {
+  font-size: 45rpx;
+  text-align: center;
+}
+
+.item_acc {
+  border: 1rpx solid #3bac6a;
+  background-color: #3bac6a;
+  border-radius: 30rpx;
+  padding: 20rpx;
+  color: #fff;
+  margin: 40rpx;
+}
+
+.firstDebit_show {
+  margin-left: 30rpx;
+}
+
+.otherDeibit_show {
+  margin-left: 80rpx;
+}
+
+.firstCredit_show {
+  margin-left: 100rpx;
+}
+
+.otherCredit_show {
+  margin-left: 130rpx;
+}
+
+.err_judge {
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.tip {
+  position: absolute;
+  top: 15%;
+  font-size: 50rpx;
+  color: #3bac6a;
+}
+
+.tip1 {
+  position: absolute;
+  top: 23%;
+  font-size: 50rpx;
+  color: #3bac6a;
+}
+
+.tip2 {
+  position: absolute;
+  top: 28%;
+  font-size: 50rpx;
+  color: #3bac6a;
+}
+
+.tip3 {
+  position: absolute;
+  top: 33%;
+  font-size: 50rpx;
+  color: #3bac6a;
+}
+
+.tip4 {
+  position: absolute;
+  top: 45%;
+  font-size: 50rpx;
+  color: #3bac6a;
+}
+
+.tip5 {
+  position: absolute;
+  top: 40%;
+  font-size: 50rpx;
+  color: #3bac6a;
+}
+
+.make_botton_together_notToUse {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.getTheBoxToLowBottum {
+  position: absolute;
+  top: 65%;
+}
+
+.judgeRight {
+  width: 330rpx;
+  background-color: #3bac6a;
+  color: #fff;
+  border-top-left-radius: 30rpx;
+  border-bottom-left-radius: 30rpx;
+  border-top-right-radius: 1rpx;
+  border-bottom-right-radius: 1rpx;
+  font-size: 40rpx;
+}
+
+.judgeWrong {
+  width: 330rpx;
+  /* 背景颜色 */
+  background-color: #3bac6a;
+  /* 颜色 */
+  color: #fff;
+  /* 边框弧度 */
+  border-top-right-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+  border-top-left-radius: 1rpx;
+  border-bottom-left-radius: 1rpx;
+  /* 文本 */
+  font-size: 40rpx;
+}

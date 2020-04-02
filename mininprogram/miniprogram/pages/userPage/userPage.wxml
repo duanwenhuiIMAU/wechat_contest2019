@@ -1,0 +1,22 @@
+<!--pages/userPage/userPage.wxml
+<text>pages/userPage/userPage.wxml</text>
+-->
+
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <canvas class="canvas" canvas-id="ringCanvas" disable-scroll="true"></canvas>
+      <view class="tobuttom">
+        <van-switch-cell active-color="#3bac6a" title="{{warnup}}" checked="{{ checked }}" bind:change="onChange" />
+      </view>
+      <view class="borderBetweenWarupButton">
+        <button open-type="contact" class="contactUs">
+          联系我们
+        </button>
+      </view>
+    </block>
+  </view>
+</view>

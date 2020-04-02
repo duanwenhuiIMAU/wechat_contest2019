@@ -1,0 +1,219 @@
+<!--pages/exam/exam.wxml-->
+<van-notify id="custom-selector_err" />
+<van-notify id="custom-selector_notTap" />
+<van-notify id="custom-selector_cor" />
+<view wx:if="{{numberForShowOrNot == 0&&notToUse == 0}}" class='booton_view'>
+  <text class="tip">tip</text>
+  <text class="tip1">由于分录存在多借多贷</text>
+  <text class="tip2">每个选项的间距可能不同</text>
+  <text class="tip3">不要点错哦</text>
+  <!--开始热身按钮-->
+  <button class="warnup" bindtap='warnup'>正式答题</button>
+</view>
+<view>
+<!-- 动画 -->
+  <view wx:if="{{numberForShowOrNot == 3}}"class = "textToCenter" animation="{{animationData}}">{{countDownNum}}</view>
+</view>
+<view wx:if="{{numberForShowOrNot == 1&&notToUse == 0}}">
+  <progress percent="{{progressNumber}}" stroke-width="30" activeColor="#3bac6a" backgroundColor="white" />
+  <!-- 无错误选项的单选题 -->
+  <view wx:if="{{dataGetFromCloud[numberOfQuestionRank].item ==0}}">
+    <!-- <view wx:if="{{numberForShowOrNot == 1}}"></view> -->
+    <view class='question'>单选题题目：{{dataGetFromCloud[numberOfQuestionRank].question}}的会计分录</view>
+    <view wx:if="{{canTap == 0}}">
+      <view class='answer_form' bindtap='bindToNext_A'>
+        <view class='firstDebit'>A.{{dataGetFromCloud[numberOfrandom_A].debit}}</view>
+        <view class='otherDeibit' wx:if="{{dataGetFromCloud[numberOfrandom_A].debit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_A].debit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit'>{{dataGetFromCloud[numberOfrandom_A].credit}}</view>
+        <view class='otherCredit' wx:if="{{dataGetFromCloud[numberOfrandom_A].credit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_A].credit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+      <view class='answer_form' bindtap='bindToNext_B'>
+        <view class='firstDebit'>B.{{dataGetFromCloud[numberOfrandom_B].debit}}</view>
+        <view class='otherDeibit' wx:if="{{dataGetFromCloud[numberOfrandom_B].debit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_B].debit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit'>{{dataGetFromCloud[numberOfrandom_B].credit}}</view>
+        <view class='otherCredit' wx:if="{{dataGetFromCloud[numberOfrandom_B].credit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_B].credit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+      <view class='answer_form' bindtap='bindToNext_C'>
+        <view class='firstDebit'>C.{{dataGetFromCloud[numberOfrandom_C].debit}}</view>
+        <view class='otherDeibit' wx:if="{{dataGetFromCloud[numberOfrandom_C].debit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_C].debit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit'>{{dataGetFromCloud[numberOfrandom_C].credit}}</view>
+        <view class='otherCredit' wx:if="{{dataGetFromCloud[numberOfrandom_C].credit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_C].credit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+      <view class='answer_form' bindtap='bindToNext_D'>
+        <view class='firstDebit'>D.{{dataGetFromCloud[numberOfrandom_D].debit}}</view>
+        <view class='otherDeibit' wx:if="{{dataGetFromCloud[numberOfrandom_D].debit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_D].debit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit'>{{dataGetFromCloud[numberOfrandom_D].credit}}</view>
+        <view class='otherCredit' wx:if="{{dataGetFromCloud[numberOfrandom_D].credit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_D].credit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{canTap == 1}}">
+      <view class='answer_form' >
+        <view class='firstDebit'>A.{{dataGetFromCloud[numberOfrandom_A].debit}}<text wx:if='{{showOX==0}}'class='OX'>{{checkOX}}</text></view>
+        <view class='otherDeibit' wx:if="{{dataGetFromCloud[numberOfrandom_A].debit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_A].debit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit'>{{dataGetFromCloud[numberOfrandom_A].credit}}</view>
+        <view class='otherCredit' wx:if="{{dataGetFromCloud[numberOfrandom_A].credit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_A].credit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+      <view class='answer_form' >
+        <view class='firstDebit'>B.{{dataGetFromCloud[numberOfrandom_B].debit}}<text wx:if='{{showOX==1}}'class='OX'>{{checkOX}}</text></view>
+        <view class='otherDeibit' wx:if="{{dataGetFromCloud[numberOfrandom_B].debit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_B].debit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit'>{{dataGetFromCloud[numberOfrandom_B].credit}}</view>
+        <view class='otherCredit' wx:if="{{dataGetFromCloud[numberOfrandom_B].credit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_B].credit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+      <view class='answer_form' >
+        <view class='firstDebit'>C.{{dataGetFromCloud[numberOfrandom_C].debit}}<text wx:if='{{showOX==2}}'class='OX'>{{checkOX}}</text></view>
+        <view class='otherDeibit' wx:if="{{dataGetFromCloud[numberOfrandom_C].debit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_C].debit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit'>{{dataGetFromCloud[numberOfrandom_C].credit}}</view>
+        <view class='otherCredit' wx:if="{{dataGetFromCloud[numberOfrandom_C].credit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_C].credit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+      <view class='answer_form' >
+        <view class='firstDebit'>D.{{dataGetFromCloud[numberOfrandom_D].debit}}<text wx:if='{{showOX==3}}'class='OX'>{{checkOX}}</text></view>
+        <view class='otherDeibit' wx:if="{{dataGetFromCloud[numberOfrandom_D].debit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_D].debit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit'>{{dataGetFromCloud[numberOfrandom_D].credit}}</view>
+        <view class='otherCredit' wx:if="{{dataGetFromCloud[numberOfrandom_D].credit_index}}">
+          <block wx:for="{{dataGetFromCloud[numberOfrandom_D].credit_index}}" wx:key="*this">
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 判断 -->
+  <view wx:if="{{dataGetFromCloud[numberOfQuestionRank].item ==3}}">
+    <!-- <view wx:if="{{numberForShowOrNot == 2}}"> -->
+    <view class="toFillIt"></view>
+    <view class='question'>判断题题目：{{dataGetFromCloud[numberOfQuestionRank].question}}</view>
+    <view class='make_botton_together' wx:if="{{canTap==0}}">
+      <button class='judgeRight' bindtap='judgeRight'>正确</button>
+      <button class='judgeWrong' bindtap='judgeWrong'>错误</button>
+    </view>
+    <view class='make_botton_together' wx:if="{{canTap==1}}">
+      <button class='judgeRight'>正确</button>
+      <button class='judgeWrong'>错误</button>
+    </view>
+    <!-- </view> -->
+  </view>
+  
+
+  <view class="questionRank">{{numberOfQuestionRank+1}}/10</view>
+</view>
+
+<view wx:if="{{numberForShowOrNot == 2&&notToUse == 0}}">
+  <canvas canvas-id="ringCanvas" disable-scroll="true" class="canvas"></canvas>
+  <view class='item_acc_tiile_err'>你的错题</view>
+  <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+    <!-- 如果是错题就渲染 -->
+    <view class='item_acc' wx:if='{{numberArrToCorOrNot[index]==2}}'>
+      <view wx:if='{{i.item==0}}'>
+        <view> {{i.question}}的会计分录</view>
+        <view class='firstDebit_show'>{{i.debit}}</view>
+        <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+          <block wx:for="{{i.debit_index}}" wx:key='*this'>
+            <view>{{item}}</view>
+          </block>
+        </view>
+        <view class='firstCredit_show'>{{i.credit}}</view>
+        <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+          <block wx:for="{{i.credit_index}}" wx:key='*this'>
+            <view>{{item}}</view>
+          </block>
+        </view>
+      </view>
+      <view wx:if='{{i.item==3}}'>
+        <view> {{i.question}}</view>
+        <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+        <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+      </view>
+    </view>
+  </view>
+  <view class='booton_view'>
+  <button class ='finish' bindtap='toIndex'>回首页</button>
+  </view>
+</view>
+
+<view wx:if="{{notToUse == 1}}" class='booton_view'>
+  <view class="tip">今天的计划已经完成</view>
+  <view class="tip1">祝你</view>
+  <view class="tip2">上金榜，去四大</view>
+  <view class="tip5">今年个税调整较大</view>
+  <view class="tip4">可能明年的题更难哦~</view>
+  <view class="getTheBoxToLowBottum">
+    <view class='make_botton_together_notToUse'>
+      <button class='judgeRight' bindtap='toRememberCard'>去记忆卡片页</button>
+      <button class='judgeWrong' bindtap='toIndex'>回首页</button>
+    </view>
+  </view>
+</view>
+<view wx:if="{{notToUse == 2}}" class='booton_view'>
+  <view class="tip">所有计划已经都完成</view>
+  <view class="tip1">祝你</view>
+  <view class="tip2">上金榜，去四大</view>
+  <view class="tip5">今年个税调整较大</view>
+  <view class="tip4">可能明年的题更难哦~</view>
+  <view class="getTheBoxToLowBottum">
+    <view class='make_botton_together_notToUse'>
+      <button class='judgeRight' bindtap='toRememberCard'>去记忆卡片页</button>
+      <button class='judgeWrong' bindtap='toIndex'>回首页</button>
+    </view>
+  </view>
+</view>

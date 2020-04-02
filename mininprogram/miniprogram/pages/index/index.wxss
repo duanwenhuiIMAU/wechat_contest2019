@@ -1,0 +1,100 @@
+
+/** logo或用户头像的图像**/
+
+.userinfo-avatar_loge {
+  position: absolute;
+  top: 40%;
+  margin-left: 5%;
+  width: 85pt;
+  height: 85pt;
+  border-radius: 50%;
+}
+
+/** 授权信息的按钮**/
+
+.authorize {
+  position: absolute;
+  top: 40%;
+  margin-left: 7%;
+  width: 85pt;
+  height: 85pt;
+  border-radius: 50%;
+  line-height: 500%;
+  background-color: #3bac6a;
+  color: #fff;
+}
+
+/** 答题按钮**/
+
+.answer {
+  position: absolute;
+  top: 10%;
+  margin-left: 25%;
+  width: 85pt;
+  height: 85pt;
+  border-radius: 50%;
+  line-height: 500%;
+  background-color: #3bac6a;
+  color: #fff;
+}
+
+/**记忆卡片的按钮**/
+
+.rememberCard {
+  position: absolute;
+  top: 28.5%;
+  margin-left: 55%;
+  width: 85pt;
+  height: 85pt;
+  border-radius: 50%;
+  line-height: 500%;
+  background-color: #3bac6a;
+  color: #fff;
+}
+
+/** 用户的按钮**/
+
+.userPage {
+  position: absolute;
+  top: 51.5%;
+  margin-left: 55%;
+  width: 85pt;
+  height: 85pt;
+  border-radius: 50%;
+  line-height: 500%;
+  background-color: #3bac6a;
+  color: #fff;
+}
+
+/** 使用信息的按钮 **/
+
+.info {
+  position: absolute;
+  top: 70%;
+  margin-left: 25%;
+  width: 85pt;
+  height: 85pt;
+  border-radius: 50%;
+  line-height: 500%;
+  background-color: #3bac6a;
+  color: #fff;
+}
+
+/** 按钮被点击的状态 **/
+
+.button-hover {
+  background-color: rgba(24, 161, 86, 0.842);
+  opacity: 0.7;
+}
+
+/* 做一个环绕 userinfo-avatar_loge 的圆环*/
+
+.halfCircle {
+  position: absolute;
+  top: 35%;
+  margin-left: -5%;
+  border: 20rpx solid #3bac6a;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+}

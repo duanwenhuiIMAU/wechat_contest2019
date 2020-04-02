@@ -1,0 +1,624 @@
+<!--pages/rememberCard/rememberCard.wxml-->
+
+
+<view wx:if="{{notToUse == 0}}">
+  <view class='item_acc_tiile_err'>记忆卡片</view>
+  
+  <!-- 141-150的错题 -->
+  <view wx:if='{{days>=16}}'>
+    <view bindtap='pickUp_big' id="15" class = 'divide'>141-150的错题</view>
+    <view class='down clearfix {{uhide_big==15?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>140&&i.num<=150}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 131-140的错题 -->
+  <view wx:if='{{days>=15}}'>
+    <view bindtap='pickUp_big' id="14" class = 'divide'>131-140的错题</view>
+    <view class='down clearfix {{uhide_big==14?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>130&&i.num<=140}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 121-130的错题 -->
+  <view wx:if='{{days>=14}}'>
+    <view bindtap='pickUp_big' id="13" class = 'divide'>121-130的错题 </view>
+    <view class='down clearfix {{uhide_big==13?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>120&&i.num<=130}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 111-120的错题 -->
+  <view wx:if='{{days>=13}}'>
+    <view bindtap='pickUp_big' id="12" class = 'divide'>111-120的错题</view>
+    <view class='down clearfix {{uhide_big==12?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>110&&i.num<=120}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 101-110的错题 -->
+  <view wx:if='{{days>=12}}'>
+    <view bindtap='pickUp_big' id="11" class = 'divide'>101-110的错题 </view>
+    <view class='down clearfix {{uhide_big==11?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>100&&i.num<=110}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 91-100的错题 -->
+  <view wx:if='{{days>=11}}'>
+    <view bindtap='pickUp_big' id="10" class = 'divide'>91-100的错题 </view>
+    <view class='down clearfix {{uhide_big==10?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>90&&i.num<=100}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 81-90的错题 -->
+  <view wx:if='{{days>=10}}'>
+    <view bindtap='pickUp_big' id="9" class = 'divide'>81-90的错题</view>
+    <view class='down clearfix {{uhide_big==9?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>80&&i.num<=90}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--71-80的错题  -->
+  <view wx:if='{{days>=9}}'>
+    <view bindtap='pickUp_big' id="8" class = 'divide'>71-80的错题</view>
+    <view class='down clearfix {{uhide_big==8?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>70&&i.num<=80}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+   <!-- 61-70的错题 -->
+  <view wx:if='{{days>=8}}'>
+    <view bindtap='pickUp_big' id="7" class = 'divide'>61-70的错题</view>
+    <view class='down clearfix {{uhide_big==7?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>60&&i.num<=70}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 51-60的错题 -->
+  <view wx:if='{{days>=7}}'>
+    <view bindtap='pickUp_big' id="6" class = 'divide'>51-60的错题</view>
+    <view class='down clearfix {{uhide_big==6?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>50&&i.num<=60}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+ 
+  <!-- 41-50的错题 -->
+  <view wx:if='{{days>=6}}'>
+    <view bindtap='pickUp_big' id="5" class = 'divide'>41-50的错题</view>
+    <view class='down clearfix {{uhide_big==5?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>40&&i.num<=50}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 31-40的错题 -->
+  <view wx:if='{{days>=5}}'>
+    <view bindtap='pickUp_big' id="4" class = 'divide'>31-40的错题</view>
+    <view class='down clearfix {{uhide_big==4?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>30&&i.num<=40}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 21-30的错题 -->
+  <view wx:if='{{days>=4}}'>
+    <view bindtap='pickUp_big' id="3" class = 'divide'>21-30的错题</view>
+    <view class='down clearfix {{uhide_big==3?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>20&&i.num<=30}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 11-20的错题 -->
+  <view wx:if='{{days>=3}}'>
+    <view bindtap='pickUp_big' id="2" class = 'divide'>11-20的错题</view>
+    <view class='down clearfix {{uhide_big==2?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num>10&&i.num<=20}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--1-10的错题  -->
+  <view wx:if='{{days>=2}}'>
+    <view bindtap='pickUp_big' id="1" class = 'divide'>1-10的错题</view>
+    <view class='down clearfix {{uhide_big==1?"":"hidden"}}'>
+      <view wx:for='{{dataGetFromCloud}}' wx:for-item="i" wx:key="item.num">
+        <!-- 如果是错题就渲染 -->
+        <view wx:if='{{i.num<=10}}'>
+          <view class='item_acc'>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==0}}'>
+              <view class='item_acc_bra'>{{i.num}}.单选题</view>
+              <view> {{i.question}}的会计分录</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='firstDebit_show'>{{i.debit}}</view>
+                <view class='otherDeibit_show' wx:if="{{i.debit_index}}">
+                  <block wx:for="{{i.debit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+                <view class='firstCredit_show'>{{i.credit}}</view>
+                <view class='otherCredit_show' wx:if="{{i.credit_index}}">
+                  <block wx:for="{{i.credit_index}}" wx:key='*this'>
+                    <view>{{item}}</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view bindtap='pickUp' id="{{i.num}}" wx:if='{{i.item==3}}'>
+              <view class='item_acc_bra'>{{i.num}}.判断题</view>
+              <view> {{i.question}}</view>
+              <view class='down clearfix {{uhide==i.num?"":"hidden"}}'>
+                <view class='err_judge' wx:if="{{i.judge==0}}">该选项说法正确</view>
+                <view class='err_judge' wx:if="{{i.judge==1}}">该选项说法错误</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+ 
+</view>
+
+
+
+
+
+
+
+<view wx:if="{{notToUse == 1}}" class='booton_view'>
+  <view class="tip">还没有错题哦</view>
+  <view class="tip1">祝你</view>
+  <view class="tip2">上金榜，去四大</view>
+  <view class="tip5">今年个税调整较大</view>
+  <view class="tip4">可能明年的题更难哦~</view>
+  <view class="getTheBoxToLowBottum">
+    <view class='make_botton_together_notToUse'>
+      <button class='judgeRight' bindtap='toWarnup'>去热身页</button>
+      <button class='judgeWrong' bindtap='toIndex'>回首页</button>
+    </view>
+  </view>
+</view>

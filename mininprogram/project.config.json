@@ -1,0 +1,67 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": true
+	},
+	"appid": "your_appid",
+	"projectname": "wechat_contest2019",
+	"libVersion": "2.6.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "exam",
+					"pathName": "pages/exam/exam",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "after",
+					"pathName": "pages/examAfter/examAfter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "RC",
+					"pathName": "pages/rememberCard/rememberCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "work",
+					"pathName": "pages/workShop/workShop",
+					"scene": null
+				}
+			]
+		}
+	}
+}

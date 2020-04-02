@@ -1,0 +1,14 @@
+<!-- index.wxml -->
+<button class="authorize" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权登入</button>
+<block wx:else>
+  <button class="answer" bindtap='redirectToWarnupOrExam'>开始答题</button>
+  <button class="rememberCard" bindtap='navigateToRC'>记忆卡片</button>
+  <button class="userPage" bindtap='navigateToUserPage'>进入我的</button>
+  <button class="info" bindtap='navigateToInfo'>使用帮助</button>
+  <view class="halfCircle"></view>
+</block>
+<view wx:if="{{!(!hasUserInfo && canIUse)}}" bindtap='bindViewTap'>
+  <image wx:if="{{getUserLoge!=6}}" class="userinfo-avatar_loge" src="{{image}}"></image>
+  <image wx:if="{{getUserLoge==6}}" class="userinfo-avatar_loge" src="{{userInfo.avatarUrl}}" mode="cover"> </image>
+</view>
+
