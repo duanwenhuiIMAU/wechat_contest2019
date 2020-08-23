@@ -443,8 +443,8 @@ Page({
       _openid: app.checkUser()
     }).get({
       success: (res => {
-        console.log(this.data.checkData);
-        console.log(this.data);
+        // console.log(this.data.checkData);
+        // console.log(this.data);
         if (res.data.length == 1) { //有用户
           this.data.checkData = res.data;         
           if (res.data[0].canUseApp == false) {
@@ -489,7 +489,7 @@ Page({
         // numberArrToCorOrNot 的数组顺序为题的顺序的个位数减 1 
         upNumArrErr[j] = i + (count_open - 1) * 10 + 1;
         j++;
-        console.log(upNumArrErr)
+        // console.log(upNumArrErr)
       }
     }
     // 屏幕宽度 

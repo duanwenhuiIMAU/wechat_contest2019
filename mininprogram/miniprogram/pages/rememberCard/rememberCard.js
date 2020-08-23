@@ -85,7 +85,7 @@ Page({
     })
   },
   pickUp: function(event) {
-    console.log(event)
+    // console.log(event)
     var that = this;
     var javaData = this.data.uhide;
     var wxmlData = event.currentTarget.id;
@@ -103,7 +103,7 @@ Page({
     var that = this;
     var javaData = this.data.uhide_big;
     var wxmlData = event.currentTarget.id;
-    console.log(event.touches)
+    // console.log(event.touches)
     if (javaData == wxmlData) {
       that.setData({
         uhide_big: 0
