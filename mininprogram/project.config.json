@@ -28,8 +28,8 @@
 			"outputPath": ""
 		}
 	},
-	"appid": "wxaee66b2d8daaef1c",
-	"projectname": "trueFinish",
+	"appid": "yourappid",
+	"projectname": "分录英雄",
 	"libVersion": "2.6.5",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
