@@ -6,12 +6,12 @@
   <view class='viewthree'>答题时注意每道题都有时间限制</view>
   <view class='viewthree'>到达规定的时间自动进入下一题</view>
    <view class='viewthree'>
-  <image class='image' src='../img/progress.jpg' mode='aspectFit'></image>
+  <image class='image' src='cloud://hero-of-item-dfc3cb.6865-hero-of-item-dfc3cb/infoPic/progress.jpg' mode='aspectFit'></image>
   </view>
   <view class='viewtwo'>记忆卡片使用说明</view>
   <view class='viewthree'>第一次点击显示你的错题的题目</view>
   <view class='viewthree'>第二次点击显示你的错题的借贷</view>
   <view class='viewthree'>
-    <image class='image' src='../img/index.jpg' mode='aspectFit'></image>
+    <image class='image' src='cloud://hero-of-item-dfc3cb.6865-hero-of-item-dfc3cb/infoPic/index.jpg' mode='aspectFit'></image>
   </view>  
 </view>

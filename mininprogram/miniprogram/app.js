@@ -63,6 +63,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    image: ['../img/借贷new.jpg'],  
+    image: ['cloud://hero-of-item-dfc3cb.6865-hero-of-item-dfc3cb/logo/借贷new.jpg'],  
   }
 })

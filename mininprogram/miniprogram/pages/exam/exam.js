@@ -443,7 +443,8 @@ Page({
       _openid: app.checkUser()
     }).get({
       success: (res => {
-        // console.log(this.data.checkData);
+        console.log(this.data.checkData);
+        console.log(this.data);
         if (res.data.length == 1) { //有用户
           this.data.checkData = res.data;         
           if (res.data[0].canUseApp == false) {

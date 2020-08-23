@@ -15,6 +15,19 @@
   border-radius: 50%;
 }
 
+/** 授权信息的按钮**/
+
+.authorize {
+  position: absolute;
+  top: 40%;
+  margin-left: 7%;
+  width: 85pt;
+  height: 85pt;
+  border-radius: 50%;
+  line-height: 500%;
+  background-color: #3bac6a;
+  color: #fff;
+}
 
 /* 图表 */
 
